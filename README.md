@@ -1,5 +1,7 @@
 ## NodeJS Express with Babel
-
+```
+Create Basic node-express project with basic route
+```
 
 ### Setup guide
 1. npm run setup
@@ -8,7 +10,6 @@
 	- Install plugins
 3. npm start
 	- Run Project
-
 
 
 ### Project Structure
