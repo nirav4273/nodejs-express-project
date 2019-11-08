@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node src/index.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "lint:fix": "./node_modules/.bin/eslint src/*.js --fix",
-    "setup": ""
+    "setup": "cp .env.sample .env"
   },
   "author": "",
   "license": "ISC",
