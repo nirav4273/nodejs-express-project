@@ -1,2 +1,1 @@
-# nodejs-express-api-base-project
-NodeJS base project with express api setup.
+## NodeJS Express with Babel
