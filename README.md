@@ -12,6 +12,16 @@ Create Basic node-express project with basic route
 	- Run Project
 
 
+### Project branchs
+1. master
+	- base code
+2. dev
+	- development code
+3. connect-sequelize [ WIP ]
+	- Api with sequelize connection
+4. connect-mongoo [ Pending ]
+	- Api with mongodb databse.
+
 ### Project Structure
 
 ```
