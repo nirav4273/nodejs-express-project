@@ -12,7 +12,7 @@ Create Basic node-express project with basic route
 	- Run Project
 
 
-### Project branchs
+### Project branches
 1. master
 	- base code
 2. dev
