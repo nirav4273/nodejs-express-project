@@ -5,6 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon --exec babel-node src/index.js",
+    "build": "babel src --out-dir dist && npm run build:minify",
+    "build:minify": "minify dist --out-dir minify-dist",
+    "run:prod": "node minify-dist/index.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "lint:fix": "./node_modules/.bin/eslint src/*.js --fix",
     "setup": "cp .env.sample .env"
@@ -12,6 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/cli": "^7.7.4",
     "body-parser": "^1.19.0",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
@@ -21,7 +25,8 @@
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/node": "^7.6.3",
-    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-env": "^7.7.4",
+    "babel-minify": "^0.5.1",
     "eslint": "^6.6.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",

@@ -1,0 +1,1 @@
+"use strict";Object.defineProperty(exports,"__esModule",{value:!0}),exports.response=void 0;var response=function(a,b,c,d,e){a.status(c).send({success:b,msg:d,data:e})};exports.response=response;
