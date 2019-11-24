@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node src/index.js",
     "build": "babel src --out-dir dist && npm run build:minify",
     "build:minify": "minify dist --out-dir minify-dist",
-    "run:prod": "node minify-dist/index.js",
+    "run:prod": "npm run build && node minify-dist/index.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "lint:fix": "./node_modules/.bin/eslint src/*.js --fix",
     "setup": "cp .env.sample .env"
@@ -20,6 +20,7 @@
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "rimraf": "^3.0.0",
     "winston": "^3.2.1"
   },
   "devDependencies": {

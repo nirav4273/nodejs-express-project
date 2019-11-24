@@ -1,7 +1,8 @@
 ## NodeJS Express with Babel
 ```
-Create Basic node-express project with basic route
+Create Basic node-express project with basic route. Babel minify to reduce code size & improve code performance
 ```
+
 
 ### Setup guide
 1. npm run setup
@@ -10,6 +11,11 @@ Create Basic node-express project with basic route
 	- Install plugins
 3. npm start
 	- Run Project
+4. npm run prod:build
+	- Run server production with ( Minify Version )
+
+## Commands
+1. npm run build : Create minify build of project. Two folder create one with minify & another one is pure java-script code.
 
 
 ### Project branches
