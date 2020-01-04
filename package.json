@@ -10,17 +10,24 @@
     "run:prod": "npm run build && node minify-dist/index.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "lint:fix": "./node_modules/.bin/eslint src/*.js --fix",
-    "setup": "cp .env.sample .env"
+    "setup": "cp .env.sample .env",
+    "create:migrate": "cd src && npx sequelize-cli migration:generate --name ",
+    "migrate": "cd src && npx sequelize-cli db:migrate"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "@babel/cli": "^7.7.4",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
     "colors": "^1.4.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "randomstring": "^1.1.5",
     "rimraf": "^3.0.0",
+    "sequelize": "^5.21.3",
+    "sequelize-cli": "^5.5.1",
     "winston": "^3.2.1"
   },
   "devDependencies": {
