@@ -8,10 +8,10 @@
     "build": "babel src --out-dir dist && npm run copy",
     "build:minify": "minify dist --out-dir minify-dist && npm run copy",
     "copy": "node copy.js",
-    "run:prod": "npm run build && node dist/index.js",
+    "run:prod": "node prodSetup.js && npm run build && node dist/index.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "lint:fix": "./node_modules/.bin/eslint src/*.js --fix",
-    "setup": "cp .env.sample .env",
+    "setup": "node devSetup.js",
     "create:migrate": "cd src && npx sequelize-cli migration:generate --name ",
     "migrate": "cd src && npx sequelize-cli db:migrate",
     "migrate:prod": "cd src && npx sequelize-cli db:migrate --env production"
