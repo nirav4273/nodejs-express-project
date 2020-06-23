@@ -4,3 +4,7 @@ build
 minify-dist
 dist
 package-lock.json
+# ignore files in folder foo
+uploads/*
+# but keep the folder
+!uploads/.keep

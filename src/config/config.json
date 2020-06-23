@@ -1,11 +1,11 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "city_bugs",
-    "port":3306,
+    "username": "postgres",
+    "password": "root",
+    "database": "QA-Bugs",
+    "port":5432,
     "host": "127.0.0.1",
-    "dialect": "mysql",
+    "dialect": "postgres",
     "operatorsAliases": false,
     "define": {
       "timestamps": true
@@ -14,7 +14,7 @@
   "test": {
     "username": "root",
     "password": null,
-    "port":3306,
+    "port":5432,
     "database": "database_test",
     "host": "127.0.0.1",
     "dialect": "mysql",
@@ -26,7 +26,7 @@
   "production": {
     "username": "root",
     "password": null,
-    "port":3306,
+    "port":5432,
     "database": "database_production",
     "host": "127.0.0.1",
     "dialect": "mysql",
