@@ -1,31 +1,36 @@
 import { response, debug } from '../../utils/index';
 import { user as User, user_token as UserToken } from '../../models';
 import bcrypt from 'bcryptjs';
-import { generateToken } from '../../utils/jwt/index';
-
+import randomstring from 'randomstring';
 
 const comparePassword = (password, hash) => {
 	return bcrypt.compareSync(password, hash);
 }
 
-export const login  = async (req ,res) => {
-	const { email, password } = req.body;
+const generateToken = () => randomstring.generate(101);
+
+export const login  = async ({ query, body, params},res) => {
+	const { email, password } = body;
 	try{
 		const find = await User.findOne({
 			where:{
 				email
-			}
+			},
+			raw: true
 		});
 		if(find){
 			const isMatched = comparePassword(password, find.password);
 			if(isMatched){
-				const hash = generateToken({
-					email,
-					userId: find.dataValues.id
-				});
-
-				find.dataValues.password = undefined;
-				response(res, true, 200, "Login Succes", {find, ...hash});	
+				const hash = generateToken();
+				const obj = {
+					userId: find.id,
+					token: hash,
+				};
+				console.log(obj)
+				await UserToken.create(obj)
+				find.password = undefined;
+				find.hash = hash;
+				response(res, true, 200, "Login Succes", find);	
 			}else{
 				response(res, false, 404, "Invalid username / password");	
 			}		
@@ -62,17 +67,11 @@ export const signup  = async ({ body },res) => {
 		if(isUserExist){
 			response(res, false, 409, "User Already exist");
 		}else{
-			
 			const insert = await User.create(body);
-			const hash = generateToken({
-				email: body.email,
-				userId: insert.dataValues.id
-			});
-			insert.dataValues.password = undefined;
-			response(res, true, 200, "Singup Success", {find: insert, ...hash});	
+			response(res, true, 200, "Singup Success", insert);	
 		}
 		
 	} catch(e) {
-		response(res, false, 404, e.message );
+		response(res, false, 404, e);
 	}
 }
