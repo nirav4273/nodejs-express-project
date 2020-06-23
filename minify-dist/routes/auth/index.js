@@ -1,1 +1,0 @@
-"use strict";var _express=_interopRequireDefault(require("express")),_index=require("../../controller/auth/index");function _interopRequireDefault(a){return a&&a.__esModule?a:{default:a}}var router=(0,_express["default"])();router.post("/login",_index.login),router.post("/signup",_index.signup),module.exports=router;
