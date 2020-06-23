@@ -2,8 +2,6 @@
 ```
 Create Basic node-express project with basic route. Babel minify to reduce code size & improve code performance
 ```
-
-
 ### Setup guide
 1. npm run setup
 	- setup .env file
