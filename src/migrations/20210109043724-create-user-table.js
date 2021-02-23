@@ -7,28 +7,11 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true
       },
-      firstName: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      lastName: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      email: {
-        type: Sequelize.STRING,
+      phone: {
+        type: Sequelize.BIGINT,
         unique: true,
         allowNull: false
       },
-      password: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      status: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      token: Sequelize.TEXT,
       createdAt: {
         type: Sequelize.DATE,
         allowNull: false,

@@ -5,10 +5,12 @@ import bodyParser from 'body-parser'
 import passport from 'passport'
 import fileUpload from 'express-fileupload'
 import cors from 'cors'
+import { graphqlHTTP } from 'express-graphql'
+
+import schema from './graphql/schema/index'
+import root from './graphql/resolver/index'
 
 // import {passportAuth, authMiddleware} from "./utils/passport";
-// Routes
-import sampleRoutes from './routes/sample'
 
 const app = express()
 
@@ -18,6 +20,12 @@ app.use(fileUpload())
 
 app.use(cors({
   exposedHeaders: 'Authorization'
+}))
+
+app.use('/graphql', graphqlHTTP({
+  schema: schema,
+  rootValue: root,
+  graphiql: true
 }))
 
 app.use((req, res, next) => {
@@ -30,9 +38,6 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
-
-// End-points
-app.use(sampleRoutes)
 
 app.listen(process.env.PORT || 3000, () => {
   console.log(`> App Running On ${process.env.PORT || 3000}`)
