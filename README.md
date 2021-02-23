@@ -1,59 +1,62 @@
-## NodeJS Express with Babel
+### JAMBAR DEV
+
+##### Tech Stack
+* Framework: NodeJS with MySQL database
+* Libraries: Express JS & Sequelize
+* Authentication: Passport JS with JWT tokens
+* Deployment: Heroku (https://jambar-backend.herokuapp.com/)
+
+##### Setup
+1. npm install
+2. Create `.env` file from `.env.copy` & update your values.
+
+
+
+#### Database configuration
+1. Add your DB details into .env file.
+2. Migration run: `npm run migrate`
+
+
+##### Create New Migration file.
 ```
-Create Basic node-express project with basic route. Babel minify to reduce code size & improve code performance
+npm run create:migrate <filename>
+```
+
+##### Run existing migration files
+```
+npm run migrate
 ```
 
 
-### Setup guide
-1. npm run setup
-	- setup .env file
-2. npm install
-	- Install plugins
-3. npm start
-	- Run Project
-4. npm run prod:build
-	- Run server production with ( Minify Version )
-
-## Commands
-1. npm run build : Create minify build of project. Two folder create one with minify & another one is pure java-script code.
-
-
-### Project branches
-1. master
-	- base code
-2. connect-sequelize [ WIP ]
-	- Api with sequelize connection
-3. connect-mongoo [ Pending ]
-	- Api with mongodb databse.
-
-### Project Structure
-
+#### Create new seed file
 ```
-Root
-|
-|-- README.md
-|___ src
-	|
-	|
-	|__ controller
-	|	|
-	|	|
-	|	|__ auth
-	|		|
-	|		|__ index
-	|	
-	|__ routes
-	|	|
-	|	|
-	|	|__ auth
-	|		|
-	|		|__ index
-	|
-	|__ utils
-		|
-		|
-		|__ response
-		|__ debug
-		|__ index
-
+npm run create:seed <filename>
 ```
+
+#### Run seeds files
+```
+npm run seed
+```
+
+##### Start Development Server
+```
+npm run start-dev
+```
+
+##### Start Production Server
+```
+npm run prod
+```
+
+
+
+##### Eslint
+```
+npm run lint (Check errors)
+npm run lint:fix (Fix possible error automatically via this command)
+```
+
+
+
+
+

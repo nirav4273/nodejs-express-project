@@ -1,51 +1,70 @@
 {
-  "name": "nodejs-express-bolilderplate-es6",
+  "name": "jambar-backend-dev",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "src/index.js",
+  "pre-commit": [
+    "lint"
+  ],
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
-    "build": "babel src --out-dir dist && npm run copy",
-    "build:minify": "minify dist --out-dir minify-dist && npm run copy",
-    "copy": "node copy.js",
-    "run:prod": "node prodSetup.js && npm run build && node dist/index.js",
-    "lint": "./node_modules/.bin/eslint src/*.js",
-    "lint:fix": "./node_modules/.bin/eslint src/*.js --fix",
-    "setup": "node devSetup.js",
+    "start-dev": "nodemon --watch src  --exec babel-node src/index.js",
+    "start": "node dist/index.js",
+    "build": "babel src --out-dir dist",
+    "prod": "npm run build && node dist/index.js",
+    "init": "cd src && npx sequelize-cli init",
     "create:migrate": "cd src && npx sequelize-cli migration:generate --name ",
     "migrate": "cd src && npx sequelize-cli db:migrate",
-    "migrate:prod": "cd src && npx sequelize-cli db:migrate --env production"
+    "migrate:undo": "cd src && npx sequelize-cli db:migrate:undo",
+    "migrate:undo:all": "cd src && npx sequelize-cli db:migrate:undo:all",
+    "create:seed": "cd src && npx sequelize-cli seed:generate --name",
+    "seed": "cd src && npx sequelize-cli db:seed:all",
+    "seed:undo": "cd src && npx sequelize-cli db:seed:undo:all",
+    "lint": "./node_modules/.bin/eslint src --ext .js",
+    "lint:fix": "./node_modules/.bin/eslint src --ext .js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaintanu/jambar-backend-dev.git"
   },
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jaintanu/jambar-backend-dev/issues"
+  },
+  "homepage": "https://github.com/jaintanu/jambar-backend-dev#readme",
+  "engines": {
+    "node": "14.5.0"
+  },
   "dependencies": {
-    "@babel/cli": "^7.8.4",
-    "bcryptjs": "^2.4.3",
+    "@babel/cli": "^7.12.10",
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/plugin-transform-runtime": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "aws-sdk": "^2.825.0",
+    "babel-register": "^6.26.0",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.19.0",
-    "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
+    "eslint": "^7.18.0",
     "express": "^4.17.1",
-    "fs-extra": "^9.0.0",
-    "minimist": "^1.2.5",
-    "mysql2": "^2.1.0",
-    "randomstring": "^1.1.5",
-    "rimraf": "^3.0.2",
-    "sequelize": "^5.21.5",
-    "sequelize-cli": "^5.5.1",
-    "winston": "^3.2.1"
+    "express-fileupload": "^1.2.1",
+    "express-validator": "^6.9.2",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "mysql2": "^2.2.5",
+    "nodemon": "^2.0.7",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0",
-    "@babel/node": "^7.8.7",
-    "@babel/plugin-transform-runtime": "^7.9.0",
-    "@babel/preset-env": "^7.9.0",
-    "babel-minify": "^0.5.1",
-    "eslint": "^6.8.0",
-    "eslint-config-standard": "^14.1.1",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^10.0.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.1",
-    "nodemon": "^1.19.4"
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "pre-commit": "^1.2.2"
   }
 }

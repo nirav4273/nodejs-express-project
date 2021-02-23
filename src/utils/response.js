@@ -1,3 +1,3 @@
-export const response = (res, success, status, msg, data) => {
-	res.status(status).send({success, msg, data});
+export default (res, success, status, msg, data) => {
+  res.status(status).send({ success, message: msg, data })
 }
