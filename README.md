@@ -1,10 +1,9 @@
-### JAMBAR DEV
+### NODEJS
 
 ##### Tech Stack
 * Framework: NodeJS with MySQL database
 * Libraries: Express JS & Sequelize
 * Authentication: Passport JS with JWT tokens
-* Deployment: Heroku (https://jambar-backend.herokuapp.com/)
 
 ##### Setup
 1. npm install
